@@ -14,10 +14,13 @@
 
 <script lang="ts" setup>
   import * as echarts from 'echarts';
-  import {onMounted, reactive, ref} from "vue";
-  import {SelectType} from '@/type/selectType'
-  import {EChartsType} from "echarts";
-  import {getDataByCityAndYear} from "@/request/api";
+  import { onMounted, reactive, ref, defineProps, watch } from "vue";
+  import { SelectType } from '@/type/selectType'
+  import { EChartsType } from "echarts";
+  import { getDataByCityAndYear } from "@/request/api";
+
+  //　父组件传来city
+  // const props = defineProps(['city'])
 
   const citys = ['City of London', 'City of Edinburgh', 'Manchester']
   const years = [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
@@ -25,6 +28,15 @@
     city: 'City of London',
     year: 2012
   })
+
+/*
+  // 监听city的变化
+  watch(() => props.city, (newValue, oldValue) => {
+    console.log(newValue, ' ', oldValue)
+    selectData.city = newValue
+    gaugeData.value[0].name = newValue
+    initData()
+  })*/
 
   let myChart: EChartsType
 
@@ -144,19 +156,6 @@
     setTimeout(() => {
       initData()
     }, 500)
-
-    /*setInterval(function () {
-      gaugeData[0].value = +(Math.random() * 100).toFixed(2);
-      gaugeData[1].value = +(Math.random() * 100).toFixed(2);
-      gaugeData[2].value = +(Math.random() * 100).toFixed(2);
-      myChart.setOption({
-        series: [
-          {
-            data: gaugeData
-          }
-        ]
-      });
-    }, 2000);*/
 
   })
 

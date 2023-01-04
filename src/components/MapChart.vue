@@ -7,11 +7,13 @@
 <script setup>
   import * as echarts from 'echarts'
   import 'echarts/extension/bmap/bmap'
-  import {onMounted} from "vue";
+  import { onMounted, defineEmits } from "vue";
+
+  const emit = defineEmits(['place'])
 
   let myChart
-  let app = {};
-  let option;
+  let app = {}
+  let option
   const data = [
     { name: '伦敦', value: 5.227532954},
     { name: '伯明翰', value: 321.5609913 },
@@ -24,8 +26,7 @@
     { name: '南安普顿', value: 42.59292644 },
     { name: '诺丁汉', value: 74.64977838 },
     { name: '纽卡斯尔', value: 75.31080398 },
-    { name: '巴斯', value: 53.19793733 },
-
+    { name: '巴斯', value: 53.19793733 }
   ];
 
   const geoCoordMap = {
@@ -258,7 +259,9 @@
         myChart.setOption(option);
       }
 
-      window.addEventListener('resize', myChart.resize);
+      myChart.on('click', (param) => {
+        emit('place', param.data.name)
+      })
     }, 2000)
   })
 
