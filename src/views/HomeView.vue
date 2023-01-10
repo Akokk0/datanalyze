@@ -28,7 +28,6 @@
   import RightChart from "@/components/RightChart.vue";
   import MapChart from "@/components/MapChart.vue";
   import LeftBottomChart from "@/components/LeftBottomChart.vue";
-  import BottomChart from "@/components/BottomChart.vue";
   import RightBottomChart from "@/components/RightBottomChart.vue";
   import {ref} from "vue";
 
