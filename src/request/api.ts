@@ -1,4 +1,5 @@
 import request from "@/request/index";
+import { LoginDataInt } from "@/type/login";
 import {SelectType} from "@/type/selectType";
 
 export function getVehicleTypeByYear(data: number) {
@@ -12,5 +13,13 @@ export function getDataByCityAndYear(data: SelectType) {
     return request({
         url: `/getDataByCity/${data.city}/${data.year}`,
         method: 'GET'
+    })
+}
+
+export function login(data: LoginDataInt) {
+    return request({
+        url: '/login',
+        method: 'POST',
+        data
     })
 }

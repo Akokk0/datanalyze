@@ -83,4 +83,9 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
   }
+
+  .common-layout {
+    background: linear-gradient(skyblue, pink);
+  }
+
 </style>

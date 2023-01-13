@@ -3,10 +3,15 @@ import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: HomeView
   },
+  {
+    path: '/',
+    name: 'login',
+    component: () => import('@/views/LoginView.vue')
+  }
   /*{
     path: '/about',
     name: 'about',

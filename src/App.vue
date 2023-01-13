@@ -1,5 +1,5 @@
 <template>
-  <div class="bg">
+  <div>
     <router-view/>
   </div>
 </template>
@@ -10,10 +10,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  .bg {
-    background: linear-gradient(skyblue, pink);
   }
 
 </style>
